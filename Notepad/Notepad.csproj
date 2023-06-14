@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="add.png" />
+    <None Remove="app_logo.ico" />
+    <None Remove="img\search.png" />
+    <None Remove="protected.png" />
+    <None Remove="search.png" />
+    <None Remove="sort.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="add.png" />
+    <Resource Include="img\app_logo.ico" />
+    <Resource Include="img\sort.png" />
+    <Resource Include="protected.png" />
+    <Resource Include="search.png" />
+  </ItemGroup>
+
+</Project>
