@@ -8,11 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="add.png" />
     <None Remove="app_logo.ico" />
     <None Remove="img\search.png" />
-    <None Remove="protected.png" />
-    <None Remove="search.png" />
     <None Remove="sort.png" />
   </ItemGroup>
 
@@ -21,15 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="add.png" />
     <Resource Include="img\app_logo.ico" />
     <Resource Include="img\sort.png" />
-    <Resource Include="protected.png" />
-    <Resource Include="search.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
