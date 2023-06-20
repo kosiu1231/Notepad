@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notepad.json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,12 @@ namespace Notepad
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Database database;
+
         public MainWindow()
         {
+            database = new Database(Environment.CurrentDirectory + "\\db.json");
+
             InitializeComponent();
         }
     }
