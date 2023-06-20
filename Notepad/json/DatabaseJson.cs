@@ -5,7 +5,7 @@ namespace Notepad.json
 {
     public class DatabaseJson
     {
-        public List<Note> notes { get; set; } = new List<Note>();
-        public List<Tag> tags { get; set; } = new List<Tag>();
+        public List<Note> Notes { get; set; } = new List<Note>();
+        public List<Tag> Tags { get; set; } = new List<Tag>();
     }
 }

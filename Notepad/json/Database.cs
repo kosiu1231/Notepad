@@ -10,30 +10,30 @@ namespace Notepad.json
 {
     public class Database
     {
-        private string filePath { get; }
-        private string json { get; set; }
-        protected DatabaseJson db { get; }
+        private string FilePath { get; }
+        private string Json { get; set; }
+        protected DatabaseJson Db { get; }
 
-        public Database(string filePath)
+        public Database(string _FilePath)
         {
-            this.filePath = filePath;
-            if (!File.Exists(filePath))
+            this.FilePath = _FilePath;
+            if (!File.Exists(_FilePath))
             {
-                db = new DatabaseJson();
+                Db = new DatabaseJson();
                 save();
                 return;
             }
 
-            json = File.ReadAllText(filePath);
-            db = JsonConvert.DeserializeObject<DatabaseJson>(json);
+            Json = File.ReadAllText(_FilePath);
+            Db = JsonConvert.DeserializeObject<DatabaseJson>(Json);
         }
 
         public void save()
         {
-            using (StreamWriter file = File.CreateText(filePath))
+            using (StreamWriter file = File.CreateText(FilePath))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, db);
+                serializer.Serialize(file, Db);
             }
         }
     }

@@ -4,13 +4,13 @@ namespace Notepad.json.element
 {
     public class Tag : JsonElement
     {
-        public string name;
-        public Color color;
+        public string Name;
+        public Color Color;
 
-        public Tag(int id, string name, Color color) : base(id)
+        public Tag(int _Id, string _Name, Color _Color) : base(_Id)
         {
-            this.name = name;
-            this.color = color;
+            this.Name = _Name;
+            this.Color = _Color;
         }
     }
 }
