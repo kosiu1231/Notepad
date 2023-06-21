@@ -24,7 +24,7 @@ namespace Notepad.json
 
         private string FilePath { get; }
         private string Json { get; set; }
-        protected DatabaseJson Db { get; }
+        public DatabaseJson Db { get; }
 
         private Database()
         {
