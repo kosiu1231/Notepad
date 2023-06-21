@@ -7,12 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Grid.Row="1" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition />
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <Image Style="{StaticResource searchIcon}" Grid.Column="0" Source="../img/search.png"/>
-        <TextBox Style="{StaticResource searchBox}" Grid.Column="1" />
+        <Button Style="{StaticResource buttonTransparent}" >
+            <Image Source="../img/sort.png"></Image>
+        </Button>
+        <TextBlock Style="{StaticResource leftHeading}" Grid.Column="1" HorizontalAlignment="Center">Notes</TextBlock>
+        <Button Style="{StaticResource buttonTransparent}" Command="{Binding AddNoteCommand}" Grid.Column="2">
+            <Image Source="./../img/add.png"></Image>
+        </Button>
+
+        <Image Grid.Row="1" Style="{StaticResource searchIcon}" Grid.Column="0" Source="../img/search.png"/>
+        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource searchBox}" Grid.Column="1" />
     </Grid>
 </UserControl>

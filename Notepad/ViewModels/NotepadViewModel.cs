@@ -9,7 +9,16 @@ namespace Notepad.ViewModels
 {
     public class NotepadViewModel : ViewModelBase
     {
+        public NotesListingViewModel NotesListingViewModel { get; }
+        public SearchBarViewModel SearchBarViewModel { get; }
+
+
         public ICommand AddNoteCommand { get; }
 
+        public NotepadViewModel()
+        {
+            NotesListingViewModel= new NotesListingViewModel();
+            SearchBarViewModel= new SearchBarViewModel();
+        }
     }
 }

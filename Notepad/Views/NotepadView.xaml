@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Notepad.Views"
+             xmlns:components="clr-namespace:Notepad.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
@@ -21,44 +22,12 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <!--naglowek-->
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <Button Style="{StaticResource buttonTransparent}" Grid.Column="0">
-                    <Image Source="../img/sort.png"></Image>
-                </Button>
-                <TextBlock Style="{StaticResource leftHeading}" Grid.Column="1" HorizontalAlignment="Center">Notes</TextBlock>
-                <Button Style="{StaticResource buttonTransparent}" Grid.Column="2">
-                    <Image Source="../img/add.png"></Image>
-                </Button>
-            </Grid>
-
-            <!--SEARCHBAR-->
+            <components:SearchBar DataContext="{Binding SearchBarViewModel}" />
 
             <Grid Grid.Row="2">
                 <!--lista notatek-->
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                    <StackPanel>
-                        <StackPanel>
-                            <Border Padding="5 2">
-                                <StackPanel Background="White">
-                                    <TextBlock Style="{StaticResource cardName}">Nazwa notatki</TextBlock>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource cardText}">6 mar 2023</TextBlock>
-                                        <Border Style="{StaticResource cardTagBorder}">
-                                            <TextBlock Style="{StaticResource cardTagText}">Important</TextBlock>
-                                        </Border>
-                                    </StackPanel>
-                                    <TextBlock Style="{StaticResource cardText}">Lorem ipsum dolor sit amet.</TextBlock>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                    </StackPanel>
+                    <components:NotesListing DataContext="{Binding NotesListingViewModel}" />
                 </ScrollViewer>
 
             </Grid>
@@ -66,6 +35,8 @@
 
         <!--START PIERWSZY VIEW ctrl + k + c / ctrl + k + u-->
 
-        <!--NoteEditor-->
+        <Grid Grid.Column="1">
+            <components:NoteEditor />
+        </Grid>
     </Grid>
 </UserControl>

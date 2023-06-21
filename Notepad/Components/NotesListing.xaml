@@ -6,22 +6,25 @@
              xmlns:local="clr-namespace:Notepad.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListView ItemsSource="{Binding blabla}">
+    <ListView ItemsSource="{Binding NotesListingItemViewModels}">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <Border Padding="5 2">
-                    <StackPanel Background="White">
-                        <TextBlock Style="{StaticResource cardName}" Text="{Binding Note.Title}" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource cardText}" Text="{Binding Note.DateTime}" />
-                            <Border Style="{StaticResource cardTagBorder}">
-                                <TextBlock Style="{StaticResource cardTagText}" Text="{Binding jakistagid}" />
-                            </Border>
+                <Grid>
+                    <Border Padding="5 2">
+                        <StackPanel Background="White">
+                            <TextBlock Style="{StaticResource cardName}" Text="{Binding Title}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource cardText}" Text="{Binding DateTime}" />
+                                <Border Style="{StaticResource cardTagBorder}">
+                                    <TextBlock Style="{StaticResource cardTagText}" Text="tagi" />
+                                </Border>
+                            </StackPanel>
+                            <TextBlock Style="{StaticResource cardText}" Text="{Binding Content}" />
                         </StackPanel>
-                        <TextBlock Style="{StaticResource cardText}" Text="{Binding Content}" />
-                    </StackPanel>
-                </Border>
+                    </Border>
+                </Grid>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+
 </UserControl>
