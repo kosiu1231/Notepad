@@ -10,21 +10,33 @@ namespace Notepad.json
 {
     public class Database
     {
+        private static Database instance;
+
+        public static Database getInstance()
+        {
+            if(instance == null)
+            {
+                instance = new Database();
+            }
+            return instance;
+        }
+
+
         private string FilePath { get; }
         private string Json { get; set; }
         protected DatabaseJson Db { get; }
 
-        public Database(string _FilePath)
+        private Database()
         {
-            this.FilePath = _FilePath;
-            if (!File.Exists(_FilePath))
+            string FilePath = "./db.json";
+            if (!File.Exists(FilePath))
             {
                 Db = new DatabaseJson();
                 save();
                 return;
             }
 
-            Json = File.ReadAllText(_FilePath);
+            Json = File.ReadAllText(FilePath);
             Db = JsonConvert.DeserializeObject<DatabaseJson>(Json);
         }
 
