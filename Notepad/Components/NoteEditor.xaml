@@ -6,7 +6,43 @@
              xmlns:local="clr-namespace:Notepad.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Grid.Column="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0" Style="{StaticResource noteTitle}">Nazwa notatki</TextBox>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource buttonStyle}" Grid.Column="0">B</Button>
+            <Button Style="{StaticResource buttonStyle}" Grid.Column="1">I</Button>
+            <Button Style="{StaticResource buttonStyle}" Grid.Column="2">U</Button>
+            <ComboBox Style="{StaticResource tagCombobox}" Grid.Column="3">
+                <ComboBoxItem FontSize="8">Small</ComboBoxItem>
+                <ComboBoxItem FontSize="12" IsSelected="True">Normal</ComboBoxItem>
+                <ComboBoxItem FontSize="18">Medium</ComboBoxItem>
+                <ComboBoxItem FontSize="28">Large</ComboBoxItem>
+                <ComboBoxItem FontSize="36">Huge</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Style="{StaticResource tagCombobox}" Grid.Column="4">
+                <ComboBoxItem IsSelected="True">Standard</ComboBoxItem>
+                <ComboBoxItem>Important</ComboBoxItem>
+                <ComboBoxItem>Third tag</ComboBoxItem>
+                <ComboBoxItem>Lorem Ipsum</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+        <TextBox Style="{StaticResource noteTextBox}" Grid.Row="2" />
+
     </Grid>
 </UserControl>

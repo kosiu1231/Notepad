@@ -38,34 +38,12 @@
                 </Button>
             </Grid>
 
-            <Grid Grid.Row="1" Margin="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <Image Style="{StaticResource searchIcon}" Grid.Column="0" Source="../img/search.png"/>
-                <TextBox Style="{StaticResource searchBox}" Grid.Column="1" />
-            </Grid>
+            <!--SEARCHBAR-->
 
             <Grid Grid.Row="2">
                 <!--lista notatek-->
                 <ScrollViewer VerticalScrollBarVisibility="Hidden">
                     <StackPanel>
-                        <StackPanel>
-                            <Border Padding="5 2">
-                                <StackPanel Background="White">
-                                    <TextBlock Style="{StaticResource cardName}">Nazwa notatki</TextBlock>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Style="{StaticResource cardText}">6 mar 2023</TextBlock>
-                                        <Border Style="{StaticResource cardTagBorder}">
-                                            <TextBlock Style="{StaticResource cardTagText}">Important</TextBlock>
-                                        </Border>
-                                    </StackPanel>
-                                    <TextBlock Style="{StaticResource cardText}">Lorem ipsum dolor sit amet.</TextBlock>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
                         <StackPanel>
                             <Border Padding="5 2">
                                 <StackPanel Background="White">
@@ -88,44 +66,6 @@
 
         <!--START PIERWSZY VIEW ctrl + k + c / ctrl + k + u-->
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <TextBox Grid.Row="0" Style="{StaticResource noteTitle}">Nazwa notatki</TextBox>
-
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <Button Style="{StaticResource buttonStyle}" Grid.Column="0">B</Button>
-                <Button Style="{StaticResource buttonStyle}" Grid.Column="1">I</Button>
-                <Button Style="{StaticResource buttonStyle}" Grid.Column="2">U</Button>
-                <ComboBox Style="{StaticResource tagCombobox}" Grid.Column="3">
-                    <ComboBoxItem FontSize="8">Small</ComboBoxItem>
-                    <ComboBoxItem FontSize="12" IsSelected="True">Normal</ComboBoxItem>
-                    <ComboBoxItem FontSize="18">Medium</ComboBoxItem>
-                    <ComboBoxItem FontSize="28">Large</ComboBoxItem>
-                    <ComboBoxItem FontSize="36">Huge</ComboBoxItem>
-                </ComboBox>
-                <ComboBox Style="{StaticResource tagCombobox}" Grid.Column="4">
-                    <ComboBoxItem IsSelected="True">Standard</ComboBoxItem>
-                    <ComboBoxItem>Important</ComboBoxItem>
-                    <ComboBoxItem>Third tag</ComboBoxItem>
-                    <ComboBoxItem>Lorem Ipsum</ComboBoxItem>
-                </ComboBox>
-            </Grid>
-
-            <TextBox Style="{StaticResource noteTextBox}" Grid.Row="2" />
-
-        </Grid>
+        <!--NoteEditor-->
     </Grid>
 </UserControl>
