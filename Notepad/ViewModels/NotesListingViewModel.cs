@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Notepad.ViewModels
 {
-    internal class NotesListingViewModel
+    public class NotesListingViewModel : ViewModelBase
     {
+
     }
 }

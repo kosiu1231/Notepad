@@ -11,7 +11,7 @@
 
     <Grid>
 
-        <views:Notepad />
+        <views:NotepadView />
 
     </Grid>
 </Window>
