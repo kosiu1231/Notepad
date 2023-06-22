@@ -9,12 +9,14 @@
 
   <ItemGroup>
     <None Remove="app_logo.ico" />
+    <None Remove="Components\delete.png" />
     <None Remove="img\add.png" />
     <None Remove="img\search.png" />
     <None Remove="sort.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Components\delete.png" />
     <Resource Include="img\add.png" />
     <Resource Include="img\search.png" />
   </ItemGroup>

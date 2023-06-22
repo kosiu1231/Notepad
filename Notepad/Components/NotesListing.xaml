@@ -6,13 +6,23 @@
              xmlns:local="clr-namespace:Notepad.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListView ItemsSource="{Binding NotesListingItemViewModels}" SelectedItem="{Binding SelectedNotesListingItemViewModel}">
+    <ListView HorizontalContentAlignment="Stretch" ItemsSource="{Binding NotesListingItemViewModels}" SelectedItem="{Binding SelectedNotesListingItemViewModel}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <Grid>
                     <Border Padding="5 2">
-                        <StackPanel Background="White">
-                            <TextBlock Style="{StaticResource cardName}" Text="{Binding Title}" />
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Style="{StaticResource cardName}" Text="{Binding Title}" />
+                                <Button Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Width="15px" Style="{StaticResource buttonTransparent}" >
+                                    <Image Source="/Components/delete.png"></Image>
+                                </Button>
+                            </Grid>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Style="{StaticResource cardText}" Text="{Binding DateTime}" />
                                 <Border Style="{StaticResource cardTagBorder}">
