@@ -19,8 +19,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Style="{StaticResource cardName}" Text="{Binding Title}" />
-                                <Button Command="{Binding DeleteCommand}" HorizontalAlignment="Right" Width="15px" Style="{StaticResource buttonTransparent}" >
-                                    <Image Source="/Components/delete.png"></Image>
+                                <Button Command="{Binding DeleteCommand}" CommandParameter="{Binding Id}" HorizontalAlignment="Right" Width="15px" Style="{StaticResource buttonTransparent}" >
+                                    <Image Source="../img/delete.png"></Image>
                                 </Button>
                             </Grid>
                             <StackPanel Orientation="Horizontal">

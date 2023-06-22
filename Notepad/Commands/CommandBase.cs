@@ -7,18 +7,20 @@ using System.Windows.Input;
 
 namespace Notepad.Commands
 {
-    public class CommandBase : ICommand
+    public abstract class CommandBase : ICommand
     {
         public event EventHandler? CanExecuteChanged;
 
-        public bool CanExecute(object? parameter)
+        public virtual bool CanExecute(object? parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public void Execute(object? parameter)
+        public abstract void Execute(object? parameter);
+
+        protected virtual void OnCanExecuteChanged(object? parameter)
         {
-            throw new NotImplementedException();
+            CanExecuteChanged?.Invoke(this, new EventArgs());
         }
     }
 }

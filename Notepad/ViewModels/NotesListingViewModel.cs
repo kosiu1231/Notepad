@@ -1,4 +1,5 @@
-﻿using Notepad.json;
+﻿using Notepad.Commands;
+using Notepad.json;
 using Notepad.json.element;
 using Notepad.Stores;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Notepad.ViewModels
 {
@@ -31,6 +33,8 @@ namespace Notepad.ViewModels
                 _selectedNoteStore.Note = _selectedNotesListingItemViewModel.Note;
             }
         }
+
+
 
         public NotesListingViewModel(SelectedNoteStore selectedNoteStore)
         {

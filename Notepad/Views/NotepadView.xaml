@@ -26,7 +26,7 @@
 
             <Grid Grid.Row="2">
                 <!--lista notatek-->
-                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="False"> 
                     <components:NotesListing DataContext="{Binding NotesListingViewModel}" />
                 </ScrollViewer>
 

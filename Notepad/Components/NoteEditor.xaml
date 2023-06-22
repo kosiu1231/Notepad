@@ -42,7 +42,7 @@
             </ComboBox>
         </Grid>
 
-        <TextBox Style="{StaticResource noteTextBox}" Text="{Binding Content}" Grid.Row="2" />
+        <TextBox Style="{StaticResource noteTextBox}" Text="{Binding Content}" TextWrapping="Wrap" Grid.Row="2" />
 
     </Grid>
 </UserControl>
