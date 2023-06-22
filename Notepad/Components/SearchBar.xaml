@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <Button Style="{StaticResource buttonTransparent}" >
-            <Image  Source="../img/sort.png"></Image>
+            <Image Source="../img/sort.png"></Image>
         </Button>
         <TextBlock Style="{StaticResource leftHeading}" Grid.Column="1" HorizontalAlignment="Center">Notes</TextBlock>
         <Button Style="{StaticResource buttonTransparent}" Command="{Binding AddNoteCommand}" Grid.Column="2">
