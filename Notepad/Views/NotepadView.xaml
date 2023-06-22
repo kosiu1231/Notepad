@@ -22,7 +22,7 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <components:SearchBar DataContext="{Binding NotesListingViewModel}" />
+            <components:SearchBar DataContext="{Binding SearchBarViewModel}" />
 
             <Grid Grid.Row="2">
                 <!--lista notatek-->

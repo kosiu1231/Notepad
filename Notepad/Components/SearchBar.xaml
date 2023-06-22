@@ -27,6 +27,6 @@
         </Button>
 
         <Image Grid.Row="1" Style="{StaticResource searchIcon}" Grid.Column="0" Source="../img/search.png"/>
-        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource searchBox}" Grid.Column="1" />
+        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource searchBox}" Text="{Binding Search}" Grid.Column="1" />
     </Grid>
 </UserControl>

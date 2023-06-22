@@ -53,5 +53,11 @@ namespace Notepad.ViewModels
             _items.Clear();
             Database.getInstance().Db.Notes.ForEach(n => _items.Add(new NotesListingItemViewModel(n)));
         }
+
+        public void FilterItems(List<NotesListingItemViewModel> items)
+        {
+            _items.Clear();
+            items.ForEach(n => _items.Add(n));
+        }
     }
 }
