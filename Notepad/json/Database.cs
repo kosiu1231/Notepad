@@ -22,13 +22,12 @@ namespace Notepad.json
         }
 
 
-        private string FilePath { get; }
+        private static readonly string FilePath = "./db.json";
         private string Json { get; set; }
         public DatabaseJson Db { get; }
 
         private Database()
         {
-            string FilePath = "./db.json";
             if (!File.Exists(FilePath))
             {
                 Db = new DatabaseJson();
