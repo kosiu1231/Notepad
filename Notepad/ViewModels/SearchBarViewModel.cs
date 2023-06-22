@@ -10,11 +10,11 @@ namespace Notepad.ViewModels
 {
     public class SearchBarViewModel : ViewModelBase
     {
-        public ICommand AddNoteCommand { get; }
+        
 
         public SearchBarViewModel()
         {
-            AddNoteCommand = new AddNoteCommand();
+            
         }
     }
 }

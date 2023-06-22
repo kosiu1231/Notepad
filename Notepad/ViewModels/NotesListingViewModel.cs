@@ -17,6 +17,8 @@ namespace Notepad.ViewModels
         private readonly ObservableCollection<NotesListingItemViewModel> _items;
         private readonly SelectedNoteStore _selectedNoteStore;
 
+        public ICommand AddNoteCommand { get; }
+
         public IEnumerable<NotesListingItemViewModel> NotesListingItemViewModels => _items;
 
         private NotesListingItemViewModel _selectedNotesListingItemViewModel;
@@ -30,7 +32,7 @@ namespace Notepad.ViewModels
             {
                 _selectedNotesListingItemViewModel = value;
                 OnPropertyChanged(nameof(_selectedNotesListingItemViewModel));
-                _selectedNoteStore.Note = _selectedNotesListingItemViewModel.Note;
+                _selectedNoteStore.Note = _selectedNotesListingItemViewModel?.Note;
             }
         }
 
@@ -38,16 +40,18 @@ namespace Notepad.ViewModels
 
         public NotesListingViewModel(SelectedNoteStore selectedNoteStore)
         {
+            AddNoteCommand = new AddNoteCommand();
+
             this._selectedNoteStore = selectedNoteStore;
             _items = new ObservableCollection<NotesListingItemViewModel>();
             Database.getInstance().Db.Notes.ForEach(n => _items.Add(new NotesListingItemViewModel(n)));
-            
+        }
 
-            // jak nie masz nic w bazie to łap placeholder :)
-            /*_items.Add(new NotesListingItemViewModel(new Note(1, "tITLE", DateTime.Now, "Content")));
-            _items.Add(new NotesListingItemViewModel(new Note(1, "tITLE2", DateTime.Now, "Content3")));
-            _items.Add(new NotesListingItemViewModel(new Note(1, "tITLE3", DateTime.Now, "Content4")));
-            _items.Add(new NotesListingItemViewModel(new Note(1, "tITLE4", DateTime.Now, "Content5")));*/
+
+        public void RefreshItems()
+        {
+            _items.Clear();
+            Database.getInstance().Db.Notes.ForEach(n => _items.Add(new NotesListingItemViewModel(n)));
         }
     }
 }

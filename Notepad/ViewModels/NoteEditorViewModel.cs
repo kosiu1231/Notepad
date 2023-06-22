@@ -1,4 +1,5 @@
-﻿using Notepad.json.element;
+﻿using Notepad.json;
+using Notepad.json.element;
 using Notepad.Stores;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,10 @@ namespace Notepad.ViewModels
         protected override void Dispose()
         {
             _selectedNoteStore.SelectedNoteChanged -= SelectedNoteStore_SelectedNoteChanged;
+            Database.getInstance().save();
+            // Powiadom NotesListingViewModel o zmianach w kolekcji _items
+            NotesListingViewModel notesListingViewModel = (App.Current.MainWindow.DataContext as NotepadViewModel).NotesListingViewModel;
+            notesListingViewModel?.RefreshItems();
             base.Dispose();
         }
 
@@ -71,6 +76,8 @@ namespace Notepad.ViewModels
             OnPropertyChanged(nameof(Title));
             OnPropertyChanged(nameof(DateTime));
             OnPropertyChanged(nameof(Content));
+
+            
         }
     }
 }

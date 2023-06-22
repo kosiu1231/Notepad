@@ -1,5 +1,6 @@
 ﻿using Notepad.json;
 using Notepad.json.element;
+using Notepad.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,14 @@ namespace Notepad.Commands
             }
             catch (Exception) { }
 
-            db.Db.Notes.Add(new Note(_Id, "New note", DateTime.Now, "Content"));
+            Note n = new Note(_Id, "New note", DateTime.Now, "Content");
+            db.Db.Notes.Add(n);
             db.save();
+
+            // Powiadom NotesListingViewModel o zmianach w kolekcji _items
+            NotesListingViewModel notesListingViewModel = (App.Current.MainWindow.DataContext as NotepadViewModel).NotesListingViewModel;
+            notesListingViewModel?.RefreshItems();
+            notesListingViewModel.SelectedNotesListingItemViewModel = new NotesListingItemViewModel(n);
         }
     }
 }
