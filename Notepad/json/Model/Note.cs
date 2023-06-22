@@ -5,10 +5,10 @@ namespace Notepad.json.element
 {
     public class Note : JsonElement
     {
-        public string Title;
-        public DateTime DateTime;
-        public string Content;
-        public List<int> TagIds;
+        public string Title { get; set; }
+        public DateTime DateTime { get; set; }
+        public string Content { get; set; }
+        public List<int> TagIds { get; set; }
 
         public Note(int _Id, string _Title, DateTime _DateTime, string _Content) : base(_Id)
         {

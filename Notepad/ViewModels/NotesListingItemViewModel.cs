@@ -10,11 +10,11 @@ namespace Notepad.ViewModels
 {
     public class NotesListingItemViewModel : ViewModelBase
     {
-        //TODO: przy setterach zaaktualizować _Note z bazy danych
+        //TODO: przy setterach zaaktualizować Note z bazy danych
         public Note Note { get; }
-        public string Title { get; }
-        public DateTime DateTime { get; }
-        public string Content { get; }
+        public string Title => Note.Title;
+        public DateTime DateTime => Note.DateTime;
+        public string Content => Note.Content;
 
         public ICommand ShowCommand { get; }
         public ICommand DeleteCommand { get; }
@@ -22,9 +22,6 @@ namespace Notepad.ViewModels
         public NotesListingItemViewModel(Note _Note)
         {
             this.Note = _Note;
-            this.Title = _Note.Title;
-            this.DateTime = _Note.DateTime;
-            this.Content = _Note.Content;
         }
     }
 }

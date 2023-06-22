@@ -1,4 +1,5 @@
-﻿using Notepad.ViewModels;
+﻿using Notepad.Stores;
+using Notepad.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,14 +15,15 @@ namespace Notepad
     /// </summary>
     public partial class App : Application
     {
+        private readonly SelectedNoteStore _selectedNoteStore = new SelectedNoteStore();
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
-
             MainWindow = new MainWindow();
-            MainWindow.DataContext = new NotepadViewModel();
+            MainWindow.DataContext = new NotepadViewModel(_selectedNoteStore);
             MainWindow.Show();
+
+            base.OnStartup(e);
         }
     }
 }

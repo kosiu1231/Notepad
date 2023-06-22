@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notepad.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,14 +12,16 @@ namespace Notepad.ViewModels
     {
         public NotesListingViewModel NotesListingViewModel { get; }
         public SearchBarViewModel SearchBarViewModel { get; }
+        public NoteEditorViewModel NoteEditorViewModel { get; }
 
 
         public ICommand AddNoteCommand { get; }
 
-        public NotepadViewModel()
+        public NotepadViewModel(SelectedNoteStore _selectedNoteStore)
         {
-            NotesListingViewModel= new NotesListingViewModel();
-            SearchBarViewModel= new SearchBarViewModel();
+            NotesListingViewModel = new NotesListingViewModel(_selectedNoteStore);
+            SearchBarViewModel = new SearchBarViewModel();
+            NoteEditorViewModel = new NoteEditorViewModel(_selectedNoteStore);
         }
     }
 }

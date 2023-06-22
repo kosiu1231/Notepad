@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Notepad.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListView ItemsSource="{Binding NotesListingItemViewModels}">
+    <ListView ItemsSource="{Binding NotesListingItemViewModels}" SelectedItem="{Binding SelectedNotesListingItemViewModel}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <Grid>

@@ -1,5 +1,6 @@
 ﻿using Notepad.json;
 using Notepad.json.element;
+using Notepad.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,13 +13,31 @@ namespace Notepad.ViewModels
     public class NotesListingViewModel : ViewModelBase
     {
         private readonly ObservableCollection<NotesListingItemViewModel> _items;
+        private readonly SelectedNoteStore _selectedNoteStore;
 
         public IEnumerable<NotesListingItemViewModel> NotesListingItemViewModels => _items;
 
-        public NotesListingViewModel()
+        private NotesListingItemViewModel _selectedNotesListingItemViewModel;
+        public NotesListingItemViewModel SelectedNotesListingItemViewModel
         {
+            get
+            {
+                return _selectedNotesListingItemViewModel;
+            }
+            set
+            {
+                _selectedNotesListingItemViewModel = value;
+                OnPropertyChanged(nameof(_selectedNotesListingItemViewModel));
+                _selectedNoteStore.Note = _selectedNotesListingItemViewModel.Note;
+            }
+        }
+
+        public NotesListingViewModel(SelectedNoteStore selectedNoteStore)
+        {
+            this._selectedNoteStore = selectedNoteStore;
             _items = new ObservableCollection<NotesListingItemViewModel>();
             Database.getInstance().Db.Notes.ForEach(n => _items.Add(new NotesListingItemViewModel(n)));
+            
 
             // jak nie masz nic w bazie to łap placeholder :)
             /*_items.Add(new NotesListingItemViewModel(new Note(1, "tITLE", DateTime.Now, "Content")));

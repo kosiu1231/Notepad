@@ -13,7 +13,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" Style="{StaticResource noteTitle}">Nazwa notatki</TextBox>
+        <TextBox Grid.Row="0" Style="{StaticResource noteTitle}" Text="{Binding Title}" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -42,7 +42,7 @@
             </ComboBox>
         </Grid>
 
-        <TextBox Style="{StaticResource noteTextBox}" Grid.Row="2" />
+        <TextBox Style="{StaticResource noteTextBox}" Text="{Binding Content}" Grid.Row="2" />
 
     </Grid>
 </UserControl>

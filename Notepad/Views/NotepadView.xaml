@@ -36,7 +36,7 @@
         <!--START PIERWSZY VIEW ctrl + k + c / ctrl + k + u-->
 
         <Grid Grid.Column="1">
-            <components:NoteEditor />
+            <components:NoteEditor DataContext="{Binding NoteEditorViewModel}"/>
         </Grid>
     </Grid>
 </UserControl>
